@@ -92,3 +92,86 @@ Somos los seres humanos los que mas nos cuesta cambiar!
 El software es un modelo, el desarrollo de software es el proceso de modelar. Lo mas importante en ese proceso es el aprendizaje y lo importante es que las herramientas que utilicemos nos ayuden a aprender.
 
 Cambiar de un lenguaje no es solo sintaxis, es sintaxis y semantica!
+
+
+
+## Episodio 2 - "Errores" históricos de los Lenguajes de Programación - Parte II
+
+### "Error" Nro 1: Null - The Billion Dollar Mistake
+
+Dijkstra le dijo a Tony Hoare que no incluyera null en Algol-60 porque cada soltero pasara a estar casado con la misma persona. Todas las referencias van a la misma bolsa (null).
+
+Dejemos de rompernos las pelotas con tanta optimización. No estamos en los 60.
+
+Las opciones para evitar el null:
+
+* Optional<T> / Maybe
+  * Funciona muy bien en Lenguajes Estáticamente tipados
+  * No tan bien en Lenguajes Dinámicamente tipados
+* Null Object
+  * Sirve para ambos tipos de lenguajes
+  * Hay que crear jerarquía de Existencia / No Existencia
+* Encapsular null/nil y ofrecer mensajes de "control de flujo" particulares
+  * Solo válido para lenguajes dinámicamente tipados con full closures
+* GenericNil?? (No tan buena opción)
+  * Si se le envía un mensaje, se devuelve el mismo
+  * Utilizado en Objective-C
+  * Oculta "problemas"
+
+### "Error" Nro 2: Falta de closures /  lambdas / etc
+
+El concepto de "función lambda" está implementado desde 1958, en Lisp.
+
+El concepto de bloque ejecutable existe desde Agol-60 y la implementación de Dijkstra. En lenguajes bien diseñados, un bloque y un closure tienen la misma sintaxis. En lenguajes como java la sintaxis debe ser diferente.
+
+No tener closures implica:
+
+* Tener código repetido
+* No identificar que el código es también un objeto
+* No poder parametrizar código
+
+Recordar: Closure != Puntero a Función (ejemplo C).
+
+### "Error" Nro 3: Sintaxis distinta para Closure y Bloque
+
+Lenguajes sin closures desde su concepción adolecen de sintaxis distinta para closures y bloques.
+
+Problemas:
+
+* Incosistencia
+* Mayor complejidad accidental
+* Los "bloques" no son objetos
+* Nos acostumbramos a esta diferencia!
+
+### "Error" Nro 4: Weak Typing
+
+Los chequeos de tipos se categorizan en Fuerte vs Debil y Estáticamente vs Dinámicamente:
+
+* Fuerte (Strong)
+  * Estáticamente: Java, C#, Haskell
+  * Dinámicamente: Smalltalk, Ruby
+* Débil (Weak):
+  * Estáticamente: C, C++
+  * Dinámicamente: VB6, JavaScript
+
+Hay que tener cuidado con la conversión de tipos en lenguajes estáticamente tipados débiles.
+
+En C++ usar dynamic_cast, que es lo que Java/C# implementan por default.
+
+La conversión explícita de tipos es "peligrosa":
+
+* Puede generar pérdida de información
+* Suele ser inconsistente
+* Genera resultados inesperados
+
+### "Error" Nro 5: Sobrecarga de Métodos a partir del tipo de Parámetros
+
+Tener cuidado con este "feature", puede generar comportamiento inesperado y errores de compilación difíciles de entender. En Java, el no toma el tipo del objeto sino el tipo con el cual se declaro. Por ejemplo con Address y DefaultAddress, el tomaría el metodo Address si declaro la variable con el tipo del padre, a pesar de que se instancia con el hijo.
+
+### Conclusión
+
+Hay que mantener los lenguajes de programación simples y minimales.
+
+Seguir el principio del menor asombro (Principle of Least Astonishment): El resultado de realizar alguna "operación" debe ser obvio, consistente y predecible, según el nombre de la "operación" y otras pistas.
+
+Si nos equivocamos, quiero saberlo rápidamente y claramente (Que la computadora nos enseñe). Cuando no se cumple lleva a: Complejidad accidental, confusión, errores, etc.
