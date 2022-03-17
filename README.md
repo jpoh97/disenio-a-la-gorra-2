@@ -175,3 +175,76 @@ Hay que mantener los lenguajes de programación simples y minimales.
 Seguir el principio del menor asombro (Principle of Least Astonishment): El resultado de realizar alguna "operación" debe ser obvio, consistente y predecible, según el nombre de la "operación" y otras pistas.
 
 Si nos equivocamos, quiero saberlo rápidamente y claramente (Que la computadora nos enseñe). Cuando no se cumple lleva a: Complejidad accidental, confusión, errores, etc.
+
+
+## Episodio 3 - Nombramiento
+
+Una medida importante para evaluar la complejidad accidental de un sistema es su simplicidad. Una persona inteligente debe ser capaz de entender el sistema en escencia.
+
+El desarrollo de software es un trabajo de equipo. Debemos aprender a trabajar en equipo.
+
+Malos nombres conocidos vs buenos nombres por conocer.
+
+Muchas veces utilizamos nombramientos de una sola letra porque venimos influenciados por las matemáticas. Lo importante es que el equipo de trabajo tenga un entendimiento de los conceptos de negocio y que cada miembro nuevo pueda entender la solución por si mismo. El código debe mostrar su intención y en esto ayuda el nombramiento.
+
+¿Qué decisión tomamos? Siempre favorecer al más débil en vez de al más inteligente. Un desarrollador inteligente quiza es capaz de deducir la intención aún si los nombres no son los mejores, pero las personas del común no. Modelar debe revelar la intención.
+
+Cuando no sabes que nombre ponerle a algo, es porque no sabes muy bien de que estas hablando.
+
+Estos problemas vienen de los filósofos griegos que solo diferencian entre verdad y mentira, sin embargo existen muchas verdades y muchos niveles de falsedad. Existen multiples maneras de nombrar variables correctamente.
+
+¿Por qué pasa esto? No se hace por mala intención, sino que nos acostumbramos a los malos nombres.
+
+Existe un code smell llamado "too clever programer" en donde algunos desarrolladores intentan que el código se vea complicado solo por ahorrarse unas lineas, pero inyectan complejidad accidental al código.
+
+Debemos respetar los nombres del negocio. Los nombres deben mostrar su objetivo. Deben resolver una necesidad, no crearla.
+
+“El mundo era tan reciente que muchas cosas carecían de nombre, y para nombrarlas había que señalarlas con el dedo". Gabriel Garcí­a Márquez, Cien años de soledad.
+
+Mejor poner nombres sin significado que malos nombres.
+
+No hablemos de buenos o malos nombres. Hablemos que mejores y peores nombres. Mejores/más utiles/descriptivos que otros.
+
+Debemos nombrar las cosas para coincidir con el concepto. Hay nombres que capturan algo que ya existia y otros que proyectan lo que vamos a construir.
+
+Programar es un acto lingüístico, más allá de lo técnico y tecnólogico. Constantemente nos estamos comunicando al programar. Tiene caracteristicas lingüísticas que se viven cotidianamente.
+
+Hay un factor super importante que es el tiempo. En un momento de la historia un nombre puede ser bueno y en otro malo. Debemos hacer explicito el paso en el tiempo.
+
+Un nombre puede ser bueno en una comunidad y en un contexto especifico. Debe permitir comunicarnos de manera clara. No necesariamente es el mejor nombre pero si puede ser bueno.
+
+El nombramiento es fundamental en el proceso de aprendizaje que se realiza en conjunto (en equipo).
+
+Nietzsche ya lo dijo en más allá del bien y del mal, construimos nuestra propia moral y la plasmamos a la hora de nombrar variables.
+
+Criterios para saber un buen nombre:
+* La palabra utilizada debe ser neutra. No localizado (no programar en Colombiano). Obviamente depende del dominio. Programar un software para la legislación colombiana en inglés no tiene sentido. 
+* No debe ser excesivamente largo. Puede ocurrir typos al escribirlo. Si es largo, ya no es una sintesis. No es un problema con los IDEs actuales. Una cosa es un texto largo y otra cosa es un texto que acople 3 o 4 conceptos. Evitar: AgendaControllerManagerUtil... etc.
+* No extiende excesivamente el léxico. Debe hacer match con el dominio. No extenderlo mas allá del dominio.
+
+Las cosas no son solo blanco o negro.
+
+Cuando agregamos capas de abastracción se vuelve complejo mantener la representatividad. Una sobre-generalización.
+
+Algunas escuelas filosoficas mencionan que no solo nombrando conoces, nombrando creas/descubres, expandes el mundo. Cada que crear un nombre construimos la realidad. En software quizá no es tan así porque estamos modelando.
+
+Si no encontramos el nombre de negocio ideal para una variable, debemos usar metaforas o analogias para nombrar los objetos del dominio, mapear los conceptos del dominio. Evitar siempre los Service, Manager, Util, Controller, Helper, etc.
+
+Usar un idioma que no domino para programar representa un reto cultural grande.
+
+Nombramos objetos y utilizamos variables para representarlos.
+
+Debemos evitar poner el nombre del patron de diseño al nombrar. Muchas veces los patrones son conceptos de implmentación, no del dominio. Los patrones son propuestas abstractas y la implementación se la damos nosotros. No debemos guiar nuestro diseño a partir del patrón. Debemos capturar la intención del patrón porque hay muchos que son muy parecidos. Nos dieron un nuevo vocabulario, podemos hablar de manera más abstracta de las soluciones que estamos creando.
+
+Al nombrar con el patron de diseño, este estructura nuestro código. Muchos lenguajes de programación cometen este error y terminando adaptandonos a lo técnico y no al dominio. Lo técnico termina influyendo nuestro modelo e incluso crea conceptos que no representan nada: POJO, DTO, Bean, etc.
+
+Nos concentramos en hablar de los patrones y de como implementarlos en lugar de hablar del dominio y de como modelarlo.
+
+Las interfaces es más facil nombrarlas con el Rol que representa.
+
+### Conclusión
+
+* Nombrar los objetos en base al rol que tienen en el contexto en el que se los esta nombrando
+* Usar nombres de dominio del problema
+* Evitar nombres técnicos o basados en el tipo del objeto
+* Evitar nombres de mensajes basados en la implementación
