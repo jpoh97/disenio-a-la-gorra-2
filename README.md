@@ -248,3 +248,80 @@ Las interfaces es más facil nombrarlas con el Rol que representa.
 * Usar nombres de dominio del problema
 * Evitar nombres técnicos o basados en el tipo del objeto
 * Evitar nombres de mensajes basados en la implementación
+
+
+## Episodio 4 - Default Parameters o un poco de diversión
+
+Todos los parámetros deben ser explícitos. El problema con los parámetros defaults es que no se sabe de manera explícita cuales son los valores por default y te obliga a cambiar de contexto. Crea mucho acoplamiento.
+
+### Errores históricos: Clases que no son objetos
+
+Los métodos de clase (estáticos) en Java son meramente funciones, se sale del mundo de objetos. Para tratar clases como objetos, solo se puede mediante vía meta-programación y sigue sin estar en el mundo de objetos.
+
+Las clases no solo sirven para crear instancias, también debe representar comportamientos asociados al concepto que no pertenecen a una única instancia.
+
+A veces se escoge conocimiento de palabra sobre semántica.
+
+* No puedo usar polimorfismo a nivel clase
+* No hay self/this
+* No hay super
+* Método static no es objetos!!
+* Puedo simularlo con Meta-programación, pero todo es un lio
+
+### Acoplamiento con Clases
+
+Los parámetros no deben estar acoplados a un tipo sino a los mensajes que deben responder. Es una forma de romper acoplamiento.
+
+En java, cuando tengo un acoplamiento debo crear una nueva abstracción (ejemplo LocalDate vs Clock).
+
+* Referencias a clases generan acoplamiento
+  * A la implementación
+  * A un recurso externo
+* En lenguajes estáticos es peor aún si las clases no son objetos.
+
+¿Por qué en Java las clases no son objetos? Seguramente no entendían el metamodelo de Smalltalk.
+
+### Singleton
+
+Cumple 2 funciones: Asegurar una única instancia y Proveer un punto global de acceso a este (tomado del libro de patrones).
+
+La mayoría de veces se usa solo como punto de acceso porque no existe un contexto global.
+
+¿Por qué pretendemos una única instancia de una clase? En la realidad no existen cosas únicas, por lo que el Singleton en realidad no tiene mucho sentido.
+
+* Si es Singleton, que no se note (a la Smalltalk, modificar el new)
+* No hay que confundir Singleton con "variables globales"
+* Un Singleton no me permite usar objetos polimórficos
+* Si existe el mensaje "setInstance" no es Singleton
+* Dependency Injection
+  * Problema forzado por frameworks
+  * No tiene ningún sentido usar frameworks de dependency injection
+
+La inyección de dependencias es una solución a un problema inexistente. ¡El problema es absurdo! ¡¡Al final es solo parametrizar!! 
+
+La gente descubre el martillo y piensa que todos los problemas son clavos. Debemos evitar ser víctimas de las modas.
+
+Debemos evitar los Singleton siempre que podamos.
+
+### Métodos largos
+
+Dificultan la comprensión y el mantenimiento.
+
+Es muy importante conocer las herramientas de refactoring automatizado que provee el IDE para mejorar el código. Correr los test en los refactors manuales.
+
+**Al darle significado a cada una de las partes se obtiene algo más abstracto que es fácil de entender**. Se oculta información que impide ser reutilizada (Por ejemplo, con un template method).
+
+Refactorizar sirve para descubrir semánticamente que hace un método.
+
+Un método debe tener pocas líneas, no debe tener tantas colaboraciones.
+
+* Dificultan la comprensión
+* No me dejan ver el QUÉ
+* No me dejan ver la posibilidad de reúso
+
+### Conclusiones
+
+* No acoplarse a clases
+* No usar Singletons
+* No usar frameworks de Dependency Inyection, modelar bien!
+* Tener métodos cortos y bien declarativos
