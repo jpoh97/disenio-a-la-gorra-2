@@ -325,3 +325,48 @@ Un método debe tener pocas líneas, no debe tener tantas colaboraciones.
 * No usar Singletons
 * No usar frameworks de Dependency Inyection, modelar bien!
 * Tener métodos cortos y bien declarativos
+
+## Episodio 5 - Testing en la UI
+
+Normalmente los frameworks de frontend tienen ejemplos en donde nos venden la herramienta. No se preocupan por el diseño del software, solo por mostrar las características que tiene. Como consecuencia, muchos desarrolladores en frontend terminan creando código con mucha complejidad accidental.
+
+El principal problema que tiene el código que se acopla al framework es la testeabilidad. La lógica de negocio debe ser independiente y fácil de testear.
+
+Debemos buscar nombres a los objetos que vamos a utilizar, no implementar objetos in the fly (jsons) también llamados nameless objects. Porque si no no podemos nombrarlos y reflexionar sobre ellos.
+
+Evitemos el acoplamiento al framework, quizá algún día necesitemos cambiar el framework o la librería.
+
+Que el lenguaje te permita romper el encapsulamiento no significa que debamos hacerlo.
+
+NO estamos obligados a cometer los mismos errores que otros
+
+Debemos modelar nuestro negocio siempre. Eso marca la diferencia entre aplicar scripting y crear un sistema mantenible.
+
+RES, del latín: cosa. Reificar darle a algo entidad de cosa. En objetos, hacer objeto una cosa de la realidad.
+
+Debemos hacer cosas que nos causen placer estético. Ayuda para la creatividad y motivación. El admirar lo que uno hace te hace trabajar mejor y nos ayuda en la métrica de belleza.
+
+La belleza se puede entender con la habitabilidad del software. Que tan fácil y simple es convivir con este. No estar peleando con el sistema.
+
+Pensar en cuanta disonancia cognitiva me produce mirar el código (qué tan difícil es mirarlo un rato y entender que hace sin que te canse mentalmente).
+
+Mientras menos código tenga en la configuración del framework, mejor. Menos errores, más fácil de testear.
+
+Si un framework te limita en algo, no lo uses. Vas a terminar agregando complejidades. No podemos reducir la calidad del diseño solo por limitaciones tecnológicas. En caso de que sea obligatorio, podemos agregar otra capa de abstracción (quizá un proxy) que permita la comunicación con la librería.
+
+En vez de usar DTOs, podemos mandar objetos sobre la red. Se puede tener el mismo objeto distribuido (replicado) en varios servidores y en el front.
+
+Un objeto debe ser inmutable si lo que está representando es inmutable. Normalmente debemos preferir los objetos inmutables. Este no es un concepto de la programación funcional, objetos puede trabajar de manera inmutable (lo aconsejable).
+
+Debemos modelar el negocio y desacoplar todo de la UI. Programar en back y front es igual!! Solo debemos diseñar bien el código. 
+
+El dominio periférico (técnico) se modela diferente en front y back ya que cada uno tiene sus conjuntos de problemas a resolver. Es importante saber el dominio en el cual estoy para saber que voy a programar.
+
+Debemos separar el dominio de objetos con las bases de datos. Son completamente distintos. Empezando porque las relaciones son inversas. En objetos, un carrito conoce sus productos, en el mundo de DB relacional, un producto conoce a cuál carrito pertenece.
+
+### Conclusiones
+
+* El problema de testear en la UI es conceptualmente el mismo que testear en el back
+* La diferencia es que la UI "se ve", el back "no se ve"
+* Otra diferencia es el uso de frameworks. Los frameworks de UI son más intrusivos que los del back
+* La solución es la misma: No dejar que el framework se meta en tu modelo de negocio
