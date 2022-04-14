@@ -370,3 +370,22 @@ Debemos separar el dominio de objetos con las bases de datos. Son completamente 
 * La diferencia es que la UI "se ve", el back "no se ve"
 * Otra diferencia es el uso de frameworks. Los frameworks de UI son más intrusivos que los del back
 * La solución es la misma: No dejar que el framework se meta en tu modelo de negocio
+
+## Episodio 6 - Meta-Modelo
+
+Meta significa describir algo más.
+
+Los mensajes de clase no existen, siempre son de instancia.
+
+Lenguajes como Python tienen el concepto de class method y static method.
+
+El meta-modelo en Smalltalk tiene 2 caracteristicas:
+1. Jerarquia paralela (Date -> DateClass)
+2. Meta clases implicitas (no nos tenemos que preocupar por crear la meta clase)
+
+### Conclusiones
+
+* El meta-modelo es cómo el lenguaje implementa el modelo de clases
+* Hay lenguajes con comportamiento especial para clases y otros no (o semi ej. Java)
+* Hay lenguajes con comportamiento especial para objetos y otros no
+* Utilizar el meta-modelo es meta-programar 
