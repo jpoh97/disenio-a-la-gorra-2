@@ -388,4 +388,21 @@ El meta-modelo en Smalltalk tiene 2 caracteristicas:
 * El meta-modelo es cómo el lenguaje implementa el modelo de clases
 * Hay lenguajes con comportamiento especial para clases y otros no (o semi ej. Java)
 * Hay lenguajes con comportamiento especial para objetos y otros no
-* Utilizar el meta-modelo es meta-programar 
+* Utilizar el meta-modelo es meta-programar
+
+## Episodio 7 - 
+
+"El diseño y la existencia de Smalltalk se deben a la idea de que todo lo que podemos describir se puede representar mediante la composición recursiva de un solo tipo de bloque de construcción de comportamiento que oculta su combinación de estado y proceso dentro de sí mismo y se puede tratar solo a través del intercambio de mensajes. Filosóficamente, los objetos de Smalltalk tiene mucho en común con las mónadas de Leibniz y las nociones de física y biología del siglo XX. Su forma de hacer objetos es bastante platónica en el sentido de que algunos de ellos actúan como idealizaciones de conceptos -Ideas- a partir de los cuales se pueden crear manifestaciones. Que las Ideas sean en sí mismas manifestaciones (de la Idea-Idea) y que la Idea-Idea sea una especie de manifestación-Idea, que es una especie de sí misma, de modo que el sistema es completamente autodescriptivo, habría sido apreciado por Platón como una broma extremadamente práctica"
+
+"The early History of Smalltalk" - HOPL II - Alan Kay
+
+Un meta sistema es un sistema cuyo dominio es otro sistema. 
+
+Un sistema reflexivo es un sistema que tiene dominio sobre sí mismo. Que es consiente de sí mismo (como los humanos).
+
+* Reflexión: Habilidad integral de una entidad para representar, operar sobre y tratar consigo mismo en la misma manera que representa, opera sobre y trata con su sujeto primario.
+* Introspection: La habilidad de un programa de razonar acerca de sí mismo y/o la implementación del lenguaje de programación (read).
+* Intercession: La habilidad de un programa de "actuar" sobre las reificaciones de si mismo y la implementación del lenguaje de programación (write).
+* Reflexión Estructural: La habilidad de un programa para acceder a su representación estructural y la implementación del lenguaje de programación.
+* Reflexión de Comportamiento (Behavioral Reflection): Habilidad de un programa para acceder a la representación dinámica de si mismo, esto es a la ejecución operacional del programa y de la implementación del lenguaje de programación.
+
