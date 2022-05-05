@@ -409,3 +409,7 @@ Un sistema reflexivo es un sistema que tiene dominio sobre sí mismo. Que es con
 ## Episodio 8 - Sobre el problema de la documentación y la documentación del problema
 
 Utilizar un enfoque de aprendizaje basado en preguntas que lleven a descubrir el diseño y entender el código de una aplicación.
+
+## Episodio 9 - Situaciones incómodas de la vida del desarrollador
+
+Existen multiples situaciones como estas, especialmente hablando de estimaciones y testing.
